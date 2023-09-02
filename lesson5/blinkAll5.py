@@ -1,0 +1,23 @@
+import RPi.GPIO as gpio
+import time
+gpio.setmode(gpio.BOARD)
+gpio.setup(37,gpio.OUT)
+gpio.setup(35,gpio.OUT)
+gpio.setup(33,gpio.OUT)
+gpio.setup(31,gpio.OUT)
+gpio.setup(29,gpio.OUT)
+numBlink = int(input('How many blinks? '))
+for i in range(0, numBlink):
+    gpio.output(37,True)
+    gpio.output(35,True)
+    gpio.output(33,True)
+    gpio.output(31,True)
+    gpio.output(29,True)
+    time.sleep(1)
+    gpio.output(37,False)
+    gpio.output(35,False)
+    gpio.output(33,False)
+    gpio.output(31,False)
+    gpio.output(29,False)
+    time.sleep(.5)
+gpio.cleanup()
